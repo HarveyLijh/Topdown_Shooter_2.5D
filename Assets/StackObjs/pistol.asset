@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afde0941445e14348a8894c02204975c, type: 3}
+  m_Name: pistol
+  m_EditorClassIdentifier: 
+  stack:
+  - {fileID: 519368209, guid: ca2590c7b19884ca389daedc2d417bf0, type: 3}
+  - {fileID: -1625990155, guid: ca2590c7b19884ca389daedc2d417bf0, type: 3}
+  - {fileID: -1211909273, guid: ca2590c7b19884ca389daedc2d417bf0, type: 3}
+  - {fileID: -298091267, guid: ca2590c7b19884ca389daedc2d417bf0, type: 3}
+  - {fileID: 1392845486, guid: ca2590c7b19884ca389daedc2d417bf0, type: 3}
+  - {fileID: 852184745, guid: ca2590c7b19884ca389daedc2d417bf0, type: 3}
+  - {fileID: 948137986, guid: ca2590c7b19884ca389daedc2d417bf0, type: 3}
+  - {fileID: -393279432, guid: ca2590c7b19884ca389daedc2d417bf0, type: 3}
+  - {fileID: -1551414228, guid: ca2590c7b19884ca389daedc2d417bf0, type: 3}
+  - {fileID: -204531792, guid: ca2590c7b19884ca389daedc2d417bf0, type: 3}
+  - {fileID: 1860135050, guid: ca2590c7b19884ca389daedc2d417bf0, type: 3}
+  - {fileID: 668160976, guid: ca2590c7b19884ca389daedc2d417bf0, type: 3}
+  - {fileID: -1837818628, guid: ca2590c7b19884ca389daedc2d417bf0, type: 3}
+  - {fileID: 1440681175, guid: ca2590c7b19884ca389daedc2d417bf0, type: 3}

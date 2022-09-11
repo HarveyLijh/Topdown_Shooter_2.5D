@@ -1,0 +1,29 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:Template name="BehaviourTracker" src="project://database/Assets/RapidStateMachine/Editor/BehaviourTracker.uxml?fileID=9197481963319205126&amp;guid=8adab979832e9994c847d06eb4aaa0d5&amp;type=3#BehaviourTracker" />
+    <Style src="project://database/Assets/RapidStateMachine/Editor/Styles/DarkStyles.uss?fileID=7433441132597879392&amp;guid=e2b046ca6c673ce46a0ae55cf84646bd&amp;type=3#DarkStyles" />
+    <ui:VisualElement style="flex-direction: row; flex-wrap: nowrap; padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px;" />
+    <ui:VisualElement class="group" style="flex-direction: row; max-height: 33px; flex-grow: 1; height: 33px; flex-basis: auto; min-height: 33px; border-left-color: rgb(126, 255, 126); border-right-color: rgb(126, 255, 126); border-top-color: rgb(126, 255, 126); border-bottom-color: rgb(126, 255, 126); border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px;">
+        <ui:Button text="&lt;" display-tooltip-when-elided="true" name="ReturnButton" />
+        <ui:Label text="Label" display-tooltip-when-elided="true" name="StateName" style="width: 267px; font-size: 20px; -unity-text-align: middle-center; align-items: center; justify-content: space-between; white-space: normal; flex-grow: 1; color: rgba(255, 255, 255, 255);" />
+        <ui:Button text="&lt;" display-tooltip-when-elided="true" picking-mode="Ignore" style="opacity: 0;" />
+        <ui:Instance template="BehaviourTracker" name="BehaviourTracker" />
+    </ui:VisualElement>
+    <ui:VisualElement style="flex-direction: row; flex-wrap: nowrap; padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px;" />
+    <ui:VisualElement name="Transitions" class="group" style="border-left-color: rgb(126, 126, 255); border-right-color: rgb(126, 126, 255); border-top-color: rgb(126, 126, 255); border-bottom-color: rgb(126, 126, 255); border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px;">
+        <ui:VisualElement style="align-items: center;">
+            <ui:Button text="Add To Transition" display-tooltip-when-elided="true" name="AddTransition" style="width: 120px; white-space: nowrap; -unity-text-align: middle-center; left: auto; top: auto; translate: 0 0; transform-origin: center; position: relative; align-items: center; justify-content: flex-start;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement style="flex-direction: row; flex-wrap: nowrap; padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px;" />
+    <ui:VisualElement name="AnyTransition" class="group" style="border-left-color: rgb(255, 124, 124); border-right-color: rgb(255, 124, 124); border-top-color: rgb(255, 124, 124); border-bottom-color: rgb(255, 124, 124); border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; align-items: center;">
+        <ui:VisualElement style="align-items: center;">
+            <ui:Button text="Add Any Transition" display-tooltip-when-elided="true" name="AddAnyTransition" style="width: 120px; white-space: nowrap; -unity-text-align: middle-center; left: auto; top: auto; translate: 0 0; transform-origin: center; position: relative; align-items: center; justify-content: flex-start; font-size: 12px;" />
+        </ui:VisualElement>
+        <ui:VisualElement style="align-items: center; flex-direction: row;">
+            <ui:Button text="Add Condition" display-tooltip-when-elided="true" name="AddCondition" style="width: 120px; white-space: nowrap; -unity-text-align: middle-center; left: auto; top: auto; translate: 0 0; transform-origin: center; position: relative; align-items: center; justify-content: flex-start; font-size: 12px;" />
+        </ui:VisualElement>
+        <ui:VisualElement style="align-items: center; flex-direction: row;">
+            <ui:Button text="Add Exclude" display-tooltip-when-elided="true" name="AddExclude" style="width: 120px; white-space: nowrap; -unity-text-align: middle-center; left: auto; top: auto; translate: 0 0; transform-origin: center; position: relative; align-items: center; justify-content: flex-start; font-size: 12px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,0 +1,152 @@
+.group {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: rgb(36, 36, 36);
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.group-element {
+    background-image: none;
+    -unity-background-image-tint-color: rgb(36, 36, 36);
+    background-color: rgb(58, 58, 58);
+    color: rgb(255, 255, 255);
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 25px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-left-color: rgba(243, 243, 243, 0.12);
+    border-right-color: rgba(243, 243, 243, 0.12);
+    border-top-color: rgba(243, 243, 243, 0.12);
+    border-bottom-color: rgba(243, 243, 243, 0.12);
+}
+
+.to {
+    flex-grow: 0;
+    flex-shrink: 0;
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    border-left-color: rgb(126, 126, 255);
+    border-right-color: rgb(126, 126, 255);
+    border-top-color: rgb(126, 126, 255);
+    border-bottom-color: rgb(126, 126, 255);
+    flex-basis: 0;
+    width: initial;
+    flex-direction: column;
+    min-width: 14px;
+    min-height: 28px;
+    justify-content: flex-start;
+    background-image: none;
+    -unity-slice-left: 0;
+    -unity-slice-top: 0;
+    -unity-slice-right: 0;
+    -unity-slice-bottom: 0;
+    -unity-background-scale-mode: stretch-to-fill;
+    -unity-background-image-tint-color: rgb(0, 83, 128);
+    background-color: rgba(255, 255, 255, 0);
+    color: rgb(126, 126, 255);
+    font-size: 14px;
+}
+
+.from {
+    flex-grow: 0;
+    flex-shrink: 0;
+    background-image: none;
+    -unity-slice-left: 0;
+    -unity-slice-top: 0;
+    -unity-slice-right: 0;
+    -unity-slice-bottom: 0;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+    border-left-color: rgb(126, 255, 126);
+    border-right-color: rgb(126, 255, 126);
+    border-top-color: rgb(126, 255, 126);
+    border-bottom-color: rgb(126, 255, 126);
+    flex-basis: 0;
+    min-width: 14px;
+    min-height: 28px;
+    -unity-background-image-tint-color: rgb(15, 128, 0);
+    background-color: rgba(88, 88, 88, 0);
+    color: rgb(126, 255, 126);
+    font-size: 14px;
+}
+
+.any {
+    flex-grow: 0;
+    flex-shrink: 0;
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+    border-left-color: rgb(255, 124, 124);
+    border-right-color: rgb(255, 124, 124);
+    border-top-color: rgb(255, 124, 124);
+    border-bottom-color: rgb(255, 124, 124);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    flex-basis: 0;
+    flex-direction: column;
+    min-width: 14px;
+    min-height: 28px;
+    background-image: none;
+    -unity-background-image-tint-color: rgb(128, 0, 0);
+    background-color: rgba(94, 94, 94, 0);
+    color: rgb(255, 124, 124);
+    font-size: 14px;
+}
+
+.simpleButton {
+    flex-shrink: 0;
+    flex-grow: 0;
+    min-width: 28px;
+    min-height: 28px;
+    max-height: 28px;
+    max-width: 28px;
+    background-color: rgba(88, 88, 88, 0);
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0);
+    -unity-text-outline-color: rgba(0, 0, 0, 0);
+    width: 25px;
+    height: 25px;
+    border-left-color: rgba(255, 255, 255, 0);
+    border-right-color: rgba(255, 255, 255, 0);
+    border-top-color: rgba(255, 255, 255, 0);
+    border-bottom-color: rgba(255, 255, 255, 0);
+    color: rgb(161, 161, 161);
+}

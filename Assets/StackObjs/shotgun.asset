@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afde0941445e14348a8894c02204975c, type: 3}
+  m_Name: shotgun
+  m_EditorClassIdentifier: 
+  stack:
+  - {fileID: 201118390, guid: 73ee6c157bbdd4d2a817eb6baa764c46, type: 3}
+  - {fileID: 845818524, guid: 73ee6c157bbdd4d2a817eb6baa764c46, type: 3}
+  - {fileID: 283445312, guid: 73ee6c157bbdd4d2a817eb6baa764c46, type: 3}
+  - {fileID: -1394243807, guid: 73ee6c157bbdd4d2a817eb6baa764c46, type: 3}
+  - {fileID: -2138314890, guid: 73ee6c157bbdd4d2a817eb6baa764c46, type: 3}
+  - {fileID: 1489239428, guid: 73ee6c157bbdd4d2a817eb6baa764c46, type: 3}
+  - {fileID: 351372221, guid: 73ee6c157bbdd4d2a817eb6baa764c46, type: 3}
+  - {fileID: 1003868624, guid: 73ee6c157bbdd4d2a817eb6baa764c46, type: 3}
+  - {fileID: 897145473, guid: 73ee6c157bbdd4d2a817eb6baa764c46, type: 3}
+  - {fileID: 2142755187, guid: 73ee6c157bbdd4d2a817eb6baa764c46, type: 3}
+  - {fileID: -1971636861, guid: 73ee6c157bbdd4d2a817eb6baa764c46, type: 3}
+  - {fileID: 1646604824, guid: 73ee6c157bbdd4d2a817eb6baa764c46, type: 3}
+  - {fileID: 520139499, guid: 73ee6c157bbdd4d2a817eb6baa764c46, type: 3}
+  - {fileID: -676445226, guid: 73ee6c157bbdd4d2a817eb6baa764c46, type: 3}

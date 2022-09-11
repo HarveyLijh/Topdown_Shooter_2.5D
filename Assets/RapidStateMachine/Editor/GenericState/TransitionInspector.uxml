@@ -1,0 +1,15 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/StateMachine/Editor/Styles/StateMachineStyles.uss?fileID=7433441132597879392&amp;guid=e2b046ca6c673ce46a0ae55cf84646bd&amp;type=3#StateMachineStyles" />
+    <ui:VisualElement name="TransitionRoot" class="group-element" style="height: auto; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px; max-height: none;">
+        <ui:VisualElement name="HeaderParent" style="flex-direction: row; height: 30px; max-height: 30px; min-height: 30px; justify-content: space-between; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-left: 0; margin-right: 0; margin-top: 5px; margin-bottom: 5px;">
+            <ui:VisualElement name="Header" style="flex-grow: 1;" />
+            <ui:VisualElement name="VisualElement" style="flex-direction: row; align-items: auto; justify-content: center; flex-grow: 0; flex-shrink: 0; width: auto; height: auto; flex-wrap: nowrap;">
+                <ui:Button display-tooltip-when-elided="true" name="Mute" class="simpleButton" style="flex-grow: 1; flex-shrink: 1; background-image: url(&apos;project://database/Assets/StateMachine/Editor/Icons/MuteIcon.png?fileID=2800000&amp;guid=c898cd5bfc664d0449035524f496e733&amp;type=3#MuteIcon&apos;); -unity-background-image-tint-color: rgb(161, 161, 161); background-color: rgba(88, 88, 88, 0); -unity-slice-left: 3; -unity-slice-top: 3; -unity-slice-right: 3; -unity-slice-bottom: 3;" />
+                <ui:Button display-tooltip-when-elided="true" name="RemoveTransition" class="simpleButton" style="flex-shrink: 1; flex-grow: 1; height: auto; background-image: url(&apos;project://database/Assets/StateMachine/Editor/Icons/DeleteIcon.png?fileID=2800000&amp;guid=2181610bba5fba448a9af237ad57f253&amp;type=3#DeleteIcon&apos;); background-color: rgba(154, 76, 76, 0); -unity-background-scale-mode: stretch-to-fill; -unity-background-image-tint-color: rgb(161, 161, 161); -unity-slice-left: 7; -unity-slice-top: 7; -unity-slice-right: 7; -unity-slice-bottom: 7;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="ConditionsSection" style="background-color: rgba(36, 36, 36, 0); flex-direction: row; flex-grow: 1;">
+            <ui:VisualElement name="Conditions" style="flex-grow: 1;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

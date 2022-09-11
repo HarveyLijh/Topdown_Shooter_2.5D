@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 38b6efb7bb0054a44803a8b730962dc0
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - pfBullet: {instanceID: 0}
+  - player: {instanceID: 0}
+  - attackPoint: {instanceID: 0}
+  - BulletManager: {fileID: 275113449609173920, guid: 64105308942b742f5a26485de7f4d0e7,
+      type: 3}
+  - muzzleFlash: {instanceID: 0}
+  - bulletHoleGraphic: {instanceID: 0}
+  - text: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

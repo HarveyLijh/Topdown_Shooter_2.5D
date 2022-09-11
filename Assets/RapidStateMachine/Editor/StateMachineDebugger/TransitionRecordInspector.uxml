@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement style="flex-direction: row; height: 27px;">
+        <ui:VisualElement style="flex-grow: 1; width: 50%; margin-left: 2px; margin-right: 2px; margin-top: 1px; margin-bottom: 1px;">
+            <ui:Label text="From" display-tooltip-when-elided="true" name="From" style="flex-shrink: 1; flex-grow: 1; -unity-text-align: middle-center; height: 24px; font-size: 16px; white-space: nowrap; background-color: rgb(48, 48, 48); margin-left: 2px; margin-right: 2px; margin-top: 2px; margin-bottom: 2px; width: 100%; color: rgba(255, 255, 255, 255);" />
+        </ui:VisualElement>
+        <ui:VisualElement style="flex-grow: 1; width: 50%; margin-left: 2px; margin-right: 2px; margin-top: 1px; margin-bottom: 1px;">
+            <ui:Label text="Time" display-tooltip-when-elided="true" name="Time" style="flex-shrink: 1; flex-grow: 1; -unity-text-align: middle-center; height: 24px; font-size: 16px; white-space: nowrap; background-color: rgb(48, 48, 48); margin-left: 2px; margin-right: 2px; margin-top: 2px; margin-bottom: 2px; width: 100%; color: rgba(255, 255, 255, 255);" />
+        </ui:VisualElement>
+        <ui:VisualElement style="flex-grow: 1; width: 50%; margin-left: 2px; margin-right: 2px; margin-top: 1px; margin-bottom: 1px;">
+            <ui:Label text="To" display-tooltip-when-elided="true" name="To" style="flex-shrink: 1; flex-grow: 1; -unity-text-align: middle-center; height: 24px; font-size: 16px; white-space: nowrap; background-color: rgb(48, 48, 48); margin-left: 2px; margin-right: 2px; margin-top: 2px; margin-bottom: 2px; width: 100%; color: rgba(255, 255, 255, 255);" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
