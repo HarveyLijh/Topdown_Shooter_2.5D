@@ -10,9 +10,9 @@ public class GunSystem : MonoBehaviour
     //Gun stats
     public int damage;
     public float timeBetweenShooting, speed, spread, range, reloadTime, timeBetweenShots;
-    public int magazineSize, bulletsPerTap;
-    public bool allowButtonHold;
-    int bulletsLeft, bulletsShot;
+    public int magazineSize, bulletsPerTap, magazineTotal;
+    public bool allowButtonHold = false, unlimitedMagazine = true;
+    int bulletsLeft, bulletsShot, magazineLeft;
 
     public enum nonPlayerInput
     {
@@ -49,7 +49,7 @@ public class GunSystem : MonoBehaviour
         Debug.Log(bulletPool);
 
         bulletsLeft = magazineSize;
-
+        magazineLeft = magazineTotal;
         //Debug.Log(gameObject.GetComponentInParent<GameObject>());
         gunner = gameObject.transform.parent.gameObject;
         readyToShoot = true;
@@ -67,7 +67,10 @@ public class GunSystem : MonoBehaviour
             PlayerInput();
 
             //SetText
-            text.SetText(bulletsLeft + " / " + magazineSize);
+            string showText = bulletsLeft / bulletsPerTap + " / ";
+            if (unlimitedMagazine) showText += "∞";
+            else showText += magazineLeft;
+            text.SetText(showText);
         }
 
     }
@@ -76,7 +79,8 @@ public class GunSystem : MonoBehaviour
         if (allowButtonHold) shooting = (input == nonPlayerInput.FIRE);
         else shooting = (input == nonPlayerInput.FIRE);
 
-        if ((input == nonPlayerInput.RELOAD) && bulletsLeft < magazineSize && !reloading) Reload();
+        if ((input == nonPlayerInput.RELOAD) && (unlimitedMagazine || magazineLeft > 0)
+            && bulletsLeft < magazineSize && !reloading) Reload();
         //if (bulletsLeft == 0 && !reloading) Reload();
 
         //Shoot
@@ -92,7 +96,8 @@ public class GunSystem : MonoBehaviour
         if (allowButtonHold) shooting = Input.GetKey(KeyCode.Mouse0);
         else shooting = Input.GetKeyDown(KeyCode.Mouse0);
 
-        if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading) Reload();
+        if (Input.GetKeyDown(KeyCode.R) && (unlimitedMagazine || magazineLeft > 0)
+            && bulletsLeft < magazineSize && !reloading) Reload();
 
         //Shoot
         if (readyToShoot && shooting && !reloading && bulletsLeft > 0)
@@ -106,12 +111,12 @@ public class GunSystem : MonoBehaviour
         readyToShoot = false;
 
         //Spread
-        float x = Random.Range(-spread, spread);
-        float y = Random.Range(-spread, spread) / 10;
+        float x = Random.Range(-spread, spread) * 0.3f;
+        //float y = Random.Range(-spread, spread);
         float z = Random.Range(-spread, spread);
 
         //Calculate Direction with Spread
-        Vector3 shootDir = gunner.transform.forward + new Vector3(x, y, z);
+        Vector3 shootDir = gunner.transform.forward + new Vector3(x, 0, z);
 
         //RayCast
         //if (Physics.Raycast(fpsCam.transform.position, direction, out rayHit, range, whatIsEnemy))
@@ -163,6 +168,10 @@ public class GunSystem : MonoBehaviour
     private void ReloadFinished()
     {
         bulletsLeft = magazineSize;
+        if (!unlimitedMagazine)
+        {
+            magazineLeft -= 1;
+        }
         reloading = false;
         OnGunLoaded?.Invoke();
     }

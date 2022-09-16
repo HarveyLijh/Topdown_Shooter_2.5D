@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AI;
+using Micosmo.SensorToolkit;
 
 public class EnemyHelper : MonoBehaviour
 {
@@ -21,12 +22,21 @@ public class EnemyHelper : MonoBehaviour
     [SerializeField] float MaxHealth = 100f;
 
     [SerializeField] Transform destination;
+    [SerializeField] float sightRadius = 20f;
+
+    [Range(0, 20)]
+    public float accuracyOffset = 1.0f;
+    public bool enhancedAccuracy;
+
+    [HideInInspector]
+    public float bulletSpeed;
+    [SerializeField] int numOfHideOutsToSelect = 5;
 
     // hide parameters
     [HideInInspector]
-    public Transform Player;
+    public Transform Target;
     public LayerMask HidableLayers;
-    public EnemyLineOfSightChecker LineOfSightChecker;
+    public Sensor LineOfSightSensor;
     public NavMeshAgent navMeshAgent;
     [Range(-1, 1)]
     [Tooltip("Lower is a better hiding spot")]
@@ -39,7 +49,7 @@ public class EnemyHelper : MonoBehaviour
     public float UpdateFrequency = 0.25f;
 
     private Coroutine MovementCoroutine;
-    private Collider[] Colliders = new Collider[10];
+    private Collider[] Colliders;
 
     // indicators for enemy event
     //[HideInInspector]
@@ -67,7 +77,7 @@ public class EnemyHelper : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
         rotateController = GetComponentInChildren<RotateToAim>();
-
+        Colliders = new Collider[numOfHideOutsToSelect];
         // health bar set up
         health_slider.maxValue = MaxHealth;
         health_slider.value = MaxHealth;
@@ -77,12 +87,13 @@ public class EnemyHelper : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
 
         // take cover setup
-        LineOfSightChecker.OnGainSight += HandleGainSight;
-        LineOfSightChecker.OnLoseSight += HandleLoseSight;
-
+        //LineOfSightSensor.OnDetected += HandleGainSight;
+        //LineOfSightSensor.OnLostDetection = HandleLoseSight;
         // weapon notification setup
         weapon.OnGunLoaded += HandleGunLoaded;
         weapon.OnGunEmpty += HandleGunEmpty;
+        bulletSpeed = weapon.speed;
+        weapon.spread *= accuracyOffset;
         gunLoaded = true;
 
     }
@@ -92,7 +103,6 @@ public class EnemyHelper : MonoBehaviour
         gunLoaded = true;
         isReloading = false;
         isGunEmpty = false;
-        Debug.Log("Loaded");
     }
     private void HandleGunEmpty()
     {
@@ -118,10 +128,6 @@ public class EnemyHelper : MonoBehaviour
     {
         rotateController.shouldRotate = false;
     }
-    public void CanShootPlayer()
-    {
-        canSeePlayer = LineOfSightChecker.CheckDirectLineOfSight(Player);
-    }
     public void Attack()
     {
         rotateController.shouldRotate = true;
@@ -133,14 +139,11 @@ public class EnemyHelper : MonoBehaviour
     }
     public void TakeCover()
     {
-        MovementCoroutine = StartCoroutine(Hide(Player));
+        this.RestartCoroutine(Hide(), ref MovementCoroutine);
     }
     public void clearCurrentMovement()
     {
-        if (MovementCoroutine != null)
-        {
-            StopCoroutine(MovementCoroutine);
-        }
+        this.TryStopCoroutine(ref MovementCoroutine);
     }
 
     public void SetEnemyDead()
@@ -170,22 +173,22 @@ public class EnemyHelper : MonoBehaviour
         }
     }
 
-    private void HandleGainSight(Transform Target)
+    public void HandleGainSight(GameObject target, Sensor sensor)
     {
         clearCurrentMovement();
         canSeePlayer = true;
-        Player = Target;
+        Target = target.transform;
     }
 
-    private void HandleLoseSight(Transform Target)
+    public void HandleLoseSight(GameObject target, Sensor sensor)
     {
 
         clearCurrentMovement();
         canSeePlayer = false;
-        Player = null;
+        Target = null;
     }
 
-    private IEnumerator Hide(Transform Target)
+    private IEnumerator Hide()
     {
         WaitForSeconds Wait = new WaitForSeconds(UpdateFrequency);
         while (true)
@@ -195,7 +198,7 @@ public class EnemyHelper : MonoBehaviour
                 Colliders[i] = null;
             }
 
-            int hits = Physics.OverlapSphereNonAlloc(navMeshAgent.transform.position, LineOfSightChecker.Collider.radius, Colliders, HidableLayers);
+            int hits = Physics.OverlapSphereNonAlloc(navMeshAgent.transform.position, sightRadius, Colliders, HidableLayers);
 
             int hitReduction = 0;
             for (int i = 0; i < hits; i++)

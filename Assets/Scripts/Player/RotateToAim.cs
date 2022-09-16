@@ -15,8 +15,11 @@ public class RotateToAim : MonoBehaviour
     //[SerializeField] Transform armL;
     //[SerializeField] Transform armR;
 
-    public bool shouldRotate = false;
+    [HideInInspector]
+    public bool shouldRotate;
+    private EnemyHelper enemyHelper;
     private Transform playerTransform;
+    private PlayerBehavior playerBehavior;
     private enum AimTarget
     {
         PLAYER,
@@ -24,24 +27,36 @@ public class RotateToAim : MonoBehaviour
     }
     void Awake()
     {
+        playerTransform = GameObject.Find("PlayerObj").transform;
+        playerBehavior = playerTransform.GetComponent<PlayerBehavior>();
         if (aimTarget == AimTarget.PLAYER)
         {
-            playerTransform = GameObject.Find("PlayerObj").transform;
+            enemyHelper = transform.parent.gameObject.GetComponent<EnemyHelper>();
         }
+
     }
     // Update is called once per frame
     void Update()
     {
         if (shouldRotate && aimTarget == AimTarget.PLAYER)
         {
-
-            //if (Physics.Raycast(transform.position, playerTransform.position, out RaycastHit hit, float.MaxValue, mask))
-            //{
             Vector3 target = playerTransform.position;
             Vector3 direction = target - transform.position;
+            if (enemyHelper != null && enemyHelper.enhancedAccuracy)
+            {
+                if (playerBehavior.InterceptionDirection(
+                    player: new Vector2(target.x, target.z),
+                    gunner: new Vector2(transform.position.x, transform.position.z),
+                    v_player: new Vector2(playerBehavior.movementOffSet.x, playerBehavior.movementOffSet.z),
+                    s_gunner: enemyHelper.bulletSpeed,
+                    result: out Vector2 predictedDirection))
+                {
+                    direction = new Vector3(predictedDirection.x, playerBehavior.originalY, predictedDirection.y);
+
+                }
+            }
             float rotation = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, rotation, 0), rotationSpeed * 100 * Time.deltaTime);
-            //}
 
         }
         else if (aimTarget == AimTarget.MOUSE)

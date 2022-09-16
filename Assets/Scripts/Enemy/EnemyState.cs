@@ -46,7 +46,6 @@ namespace RSM
         public void EnterIdle()
         {
             VSManager.Trace();
-            enemyHelper.clearCurrentMovement();
         }
         public void Idle()
         {
